@@ -1,0 +1,24 @@
+def title(rod1, rod2):
+    return 'Перенос кольца со стержня ' + rod1 + ' на стержень ' + rod2
+
+
+def tower(ring, rod1, rod2, sub):
+    if ring == 0:
+        print('Ошибка!')
+    elif ring == 1:
+        print(title(rod1, rod2))
+    else:
+        tower(ring - 1, rod1, sub, rod2)
+        tower(1, rod1, rod2, sub)
+        tower(ring - 1, sub, rod2, rod1)
+
+
+def main():
+    ring = int(input('Введите количество колец: '))
+    rod1 = '1'
+    rod2 = '2'
+    sub = '3'
+    return tower(ring, rod1, rod2, sub)
+
+
+main()
